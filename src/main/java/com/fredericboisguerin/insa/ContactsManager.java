@@ -6,10 +6,18 @@ import java.util.stream.Collectors;
 
 public class ContactsManager {
 
-    private List<Contact> contactList = new ArrayList<>();
+    private final List<Contact> contactList = new ArrayList<>();
+    private static final String EMAIL_REGEX=  "^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]+$";
 
-    public void addContact(String name, String email, String phoneNumber) {
+    public void addContact(String name, String email, String phoneNumber) throws InvalidContactNameException,InvalidEmailException {
         Contact contact=new Contact(name,email,phoneNumber);
+        if(name==null||name.isEmpty()){
+            throw new InvalidContactNameException();
+        }else{
+            if (email !=null && !email.matches(EMAIL_REGEX)){
+                throw new InvalidEmailException();
+            }
+        }
         contactList.add(contact);
 
     }
