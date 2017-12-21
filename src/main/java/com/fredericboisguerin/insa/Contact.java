@@ -11,6 +11,10 @@ public class Contact {
         this.email=email;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         if (email==null) {
@@ -18,5 +22,10 @@ public class Contact {
         } else {
             return name + ", " + email + ", " + phoneNumber;
         }
+    }
+
+    public boolean nameMatches(String pattern) {
+        return this.name.toLowerCase().contains(pattern);
+
     }
 }

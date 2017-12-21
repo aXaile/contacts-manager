@@ -2,6 +2,7 @@ package com.fredericboisguerin.insa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ContactsManager {
 
@@ -20,7 +21,14 @@ public class ContactsManager {
     }
 
     public void searchContactByName(String name) {
-
+        List<Contact> matchingContacts = contactList.stream().filter(contact -> contact.nameMatches(name)).collect(Collectors.toList());
+          if(matchingContacts.size()>0) {
+              for (Contact index : matchingContacts) {
+                  System.out.println(index);
+              }
+          }else{
+              System.out.println("No Contact found with name:"+name);
+        }
 
     }
 }
