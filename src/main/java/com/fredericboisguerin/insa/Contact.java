@@ -10,4 +10,13 @@ public class Contact {
         this.phoneNumber=phoneNumber;
         this.email=email;
     }
+
+    @Override
+    public String toString() {
+        if (email==null) {
+            return name + ", " + phoneNumber;
+        } else {
+            return name + ", " + email + ", " + phoneNumber;
+        }
+    }
 }

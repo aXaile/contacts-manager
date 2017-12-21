@@ -14,10 +14,13 @@ public class ContactsManager {
     }
 
     public void printAllContacts() {
-
+        for (Contact index:contactList){
+            System.out.println(index);
+        }
     }
 
     public void searchContactByName(String name) {
+
 
     }
 }
